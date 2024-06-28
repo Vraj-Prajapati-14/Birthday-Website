@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Burst Animation</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+    background: linear-gradient(45deg, #ff6b6b, #f06595, #cc5de8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+    text-align: center;
+     }
+     
+    
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 130px;
+            height: 210px;
+            background-size: cover;
+            background-position: center;
+            animation: rise 5s forwards;
+            transition: background-image 0.5s, opacity 0.5s;
+            z-index: 2;
+        }
+        .back {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            width: 1200px;
+            height: 600px;
+            transform: translateX(-50%);
+            opacity: 0.4; /* Adjust transparency */
+            z-index: 1;
+        }
+
+        .balloon:nth-child(1) {
+            left: 13%;
+        }
+
+        .balloon:nth-child(2) {
+            left: 35%;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(3) {
+            left: 55%;
+            animation-delay: 4s;
+        }
+
+        .balloon:nth-child(4) {
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        @keyframes rise {
+            to {
+                bottom: 50%;
+            }
+        }
+      
+    </style>
+</head>
+<body>
+   
+    <div class="balloon" id="balloon1" style="background-image: url('images/yellowb.png');"></div>
+    <div class="balloon" id="balloon2" style="background-image: url('images/yellowb.png');"></div>
+    <div class="balloon" id="balloon3" style="background-image: url('images/yellowb.png');"></div>
+    <div class="balloon" id="balloon4" style="background-image: url('images/yellowb.png');"></div>
+    <img src="images/cake.png" class="back" alt="Cake">
+
+    <script>
+        function burstBalloon(balloonId, imageUrl, delay) {
+            setTimeout(() => {
+                const balloon = document.getElementById(balloonId);
+                balloon.style.backgroundImage = `url(${imageUrl})`;
+            }, delay);
+        }
+
+        burstBalloon('balloon1', 'images/1.jpg', 7000);
+        burstBalloon('balloon2', 'images/1.jpg', 9000);
+        burstBalloon('balloon3', 'images/1.jpg', 11000);
+        burstBalloon('balloon4', 'images/1.jpg', 13000);
+    </script>
+    
+</body>
+</html>
